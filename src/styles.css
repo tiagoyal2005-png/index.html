@@ -5,10 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * KOTA DORIA — heritage textile house, Kota, Rajasthan.
- * Palette: Ivory Cream #F5EBDD, Parchment #EFE2CF, Warm Sand #D9C2A3,
- * Deep Maroon #642C32, Terracotta #A65D45, Warm Taupe #756457,
- * Dark Brown #332822, Antique Gold #B39762 (tiny details only).
+ * ACTDF — contemporary Indian heritage fashion.
+ * Cream and sand lead; maroon carries important actions; gold is a hairline detail.
  */
 
 
@@ -62,36 +60,36 @@
 :root {
   --radius: 4px;
 
-  --cream: #f5ebdd;
-  --sand: #d9c2a3;
-  --maroon: #642c32;
-  --terracotta: #a65d45;
-  --parchment: #efe2cf;
-  --gold: #b39762;
-  --charcoal: #332822;
-  --ivory: #fdf8f0;
+  --cream: #f7f1e5;
+  --sand: #d8c3a5;
+  --maroon: #5a1f2b;
+  --terracotta: #8f614e;
+  --parchment: #eee4d5;
+  --gold: #b08d57;
+  --charcoal: #2e2926;
+  --ivory: #fdfaf4;
 
-  --background: #f5ebdd;
-  --foreground: #332822;
-  --card: #fdf8f0;
-  --card-foreground: #332822;
-  --popover: #fdf8f0;
-  --popover-foreground: #332822;
-  --primary: #642c32;
-  --primary-foreground: #f5ebdd;
-  --secondary: #efe2cf;
-  --secondary-foreground: #332822;
-  --muted: #efe2cf;
-  --muted-foreground: #756457;
-  --accent: #a65d45;
-  --accent-foreground: #f5ebdd;
+  --background: #f7f1e5;
+  --foreground: #2e2926;
+  --card: #fdfaf4;
+  --card-foreground: #2e2926;
+  --popover: #fdfaf4;
+  --popover-foreground: #2e2926;
+  --primary: #5a1f2b;
+  --primary-foreground: #fdfaf4;
+  --secondary: #eee4d5;
+  --secondary-foreground: #2e2926;
+  --muted: #eee4d5;
+  --muted-foreground: #6d5d52;
+  --accent: #8f614e;
+  --accent-foreground: #fdfaf4;
   --destructive: #8a2b22;
-  --destructive-foreground: #f5ebdd;
-  --border: #e0cfb5;
-  --input: #e0cfb5;
-  --ring: #a65d45;
+  --destructive-foreground: #fdfaf4;
+  --border: #d8c3a5;
+  --input: #d8c3a5;
+  --ring: #5a1f2b;
 
-  --shadow-quiet: 0 1px 2px rgb(51 40 34 / 0.04), 0 18px 40px -28px rgb(51 40 34 / 0.22);
+  --shadow-quiet: 0 1px 2px rgb(46 41 38 / 0.04), 0 18px 40px -30px rgb(46 41 38 / 0.2);
   --transition-quiet: 500ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
