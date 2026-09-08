@@ -1,17 +1,17 @@
-/** KOTA DORIA — brand configuration. Single source of truth for contact + nav. */
+/** ACTDF — brand configuration. Single source of truth for contact + navigation. */
 export const site = {
-  name: "Kota Doria",
-  nameDisplay: "KOTA DORIA",
-  tagline: "Handwoven in Kota, Rajasthan",
+  name: "ACTDF",
+  nameDisplay: "ACTDF",
+  tagline: "Kota Doria · Reimagined",
   statement:
-    "Kota Doria is a heritage textile house working with artisans of Kota to create handwoven sarees and suits for modern life.",
-  domain: "kotadoria.com",
-  email: "care@kotadoria.com",
+    "ACTDF brings the lightness and character of Kota Doria into a contemporary Indian wardrobe.",
+  domain: "actdf.in",
+  email: "care@actdf.in",
   phone: "+916687243567",
   phoneDisplay: "+91 66872 43567",
   whatsappUrl:
-    "https://wa.me/916687243567?text=Hello%20Kota%20Doria%2C%20I%27d%20like%20help%20choosing%20a%20saree%20or%20suit.",
-  address: "Atelier & Studio — Kota, Rajasthan, India",
+    "https://wa.me/916687243567?text=Hello%20ACTDF%2C%20I%27d%20like%20help%20choosing%20a%20saree.",
+  address: "India · Online atelier",
 
   /** Placeholders — replace with real profile URLs when available. */
   socials: [
@@ -34,7 +34,7 @@ export const navLinks = [
 export const policies = [
   {
     title: "Complimentary shipping",
-    body: "Free insured delivery across India. Dispatched within 2 working days from our Kota studio.",
+    body: "Free insured delivery across India. Dispatch timing is confirmed with every order.",
   },
   {
     title: "Easy 7-day returns",
@@ -46,6 +46,6 @@ export const policies = [
   },
   {
     title: "Woven to order",
-    body: "Each saree is handwoven, so slight irregularities are a signature of the loom, not a flaw.",
+    body: "Handwoven cloth can carry slight variations that reflect the character of the loom.",
   },
 ] as const;

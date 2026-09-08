@@ -63,7 +63,7 @@ export function Navbar() {
           </button>
         </div>
 
-        <Link to="/" aria-label="Kota Doria — home" className="lg:flex-none">
+        <Link to="/" aria-label="ACTDF — home" className="lg:flex-none">
           <Wordmark />
         </Link>
 
@@ -112,7 +112,7 @@ export function Navbar() {
             className="container-page flex items-center gap-4 py-5"
             onSubmit={(e) => {
               e.preventDefault();
-              navigate({ to: "/shop", search: { q: term || undefined, category: undefined, filter: undefined } });
+               navigate({ to: "/search", search: { q: term || undefined } });
               setSearchOpen(false);
             }}
           >

@@ -166,7 +166,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         ...(l.variant ? { variant: l.variant } : {}),
       }));
       const order: Order = {
-        id: `Kota Doria-${String(Date.now()).slice(-6)}`,
+        id: `ACTDF-${String(Date.now()).slice(-6)}`,
         placedAt: new Date().toISOString(),
         items,
         total: items.reduce((s, i) => s + i.price * i.qty, 0),
@@ -175,7 +175,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         status: "Confirmed",
         trackingSteps: [
           { label: "Order confirmed", done: true },
-          { label: "In production at the Kota studio", done: false },
+          { label: "Preparing your piece", done: false },
           { label: "Shipped", done: false },
           { label: "Delivered", done: false },
         ],
