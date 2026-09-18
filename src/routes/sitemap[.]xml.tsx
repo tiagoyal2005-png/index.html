@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { collections, journalPosts, products } from "@/data/catalog";
-import { site } from "@/data/site";
 
 const staticPaths = [
   "/",
