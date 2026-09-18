@@ -29,8 +29,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build project
-        run: npx nuxt build --preset github_pages
+      - - name: Build project
+  run: npm run build
+  env:
+    NITRO_PRESET: github-pages
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
