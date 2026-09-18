@@ -21,7 +21,9 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: () => {
-        const base = `https://${site.domain}`;
+        // Published Lovable origin — keep the sitemap same-origin so Search
+        // Console accepts it. Update if a custom domain goes live.
+        const base = "https://tia-grow-digital.lovable.app";
         const urls = [
           ...staticPaths,
           ...collections.map((c) => `/collections/${c.slug}`),
