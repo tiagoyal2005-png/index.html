@@ -28,13 +28,16 @@ jobs:
 
       - name: Build project
         run: npm run build
-        env:
-          NITRO_PRESET: github-pages
+
+      - name: Add GitHub Pages domain
+        run: |
+          cp CNAME dist/client/CNAME
+          touch dist/client/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./.output/public
+          path: ./dist/client
 
   deploy:
     needs: build
