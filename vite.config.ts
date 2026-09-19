@@ -5,11 +5,41 @@
 //     React/TanStack dedupe, error logger plugins, and sandbox detection (port/host/strictPort).
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { collections, journalPosts, products } from "./src/data/catalog";
+
+const staticPages = [
+  "/",
+  "/shop",
+  "/suits",
+  "/collections",
+  "/heritage",
+  "/craft",
+  "/journal",
+  "/contact",
+  "/account",
+  "/wishlist",
+  "/bag",
+  "/checkout",
+  ...collections.map((collection) => `/collections/${collection.slug}`),
+  ...products.map((product) => `/product/${product.slug}`),
+  ...journalPosts.map((post) => `/journal/${post.slug}`),
+].map((path) => ({ path }));
 
 export default defineConfig({
+  // GitHub Pages serves files only, so emit a complete static storefront.
+  nitro: false,
   tanstackStart: {
-    // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-    // nitro/vite builds from this
     server: { entry: "server" },
+    pages: staticPages,
+    prerender: {
+      enabled: true,
+      autoStaticPathsDiscovery: false,
+      crawlLinks: false,
+      failOnError: true,
+    },
+    sitemap: {
+      enabled: true,
+      host: "https://kotadoriasarees.shop",
+    },
   },
 });
