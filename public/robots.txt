@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tia-grow-digital.lovable.app/sitemap.xml
+Sitemap: https://kotadoriasarees.shop/sitemap.xml
