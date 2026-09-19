@@ -31,13 +31,11 @@ jobs:
 
       - name: Add GitHub Pages domain
         run: cp CNAME dist/CNAME
-        env:
-          NITRO_PRESET: github-pages
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./.output/public
+          path: ./dist
 
   deploy:
     needs: build

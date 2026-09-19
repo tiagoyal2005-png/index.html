@@ -5,7 +5,6 @@
 //     React/TanStack dedupe, error logger plugins, and sandbox detection (port/host/strictPort).
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
-import { collections, journalPosts, products } from "./src/data/catalog";
 
 const staticPages = [
   "/",
@@ -20,9 +19,28 @@ const staticPages = [
   "/wishlist",
   "/bag",
   "/checkout",
-  ...collections.map((collection) => `/collections/${collection.slug}`),
-  ...products.map((product) => `/product/${product.slug}`),
-  ...journalPosts.map((post) => `/journal/${post.slug}`),
+  ...["aranya", "kshara", "vana", "dhun", "anant"].map((slug) => `/collections/${slug}`),
+  ...[
+    "aranya-maroon-zari-kota-saree",
+    "kshara-ivory-handwoven-saree",
+    "reti-sand-check-saree",
+    "vana-sage-zari-saree",
+    "dhun-charcoal-pallu-saree",
+    "gulab-rose-buti-saree",
+    "anant-bridal-maroon-gold-saree",
+    "sahaj-ivory-gold-edge-saree",
+    "sharda-ivory-kota-doria-suit",
+    "rajwada-maroon-zari-suit",
+    "mitti-terracotta-kota-doria-suit",
+  ].map((slug) => `/product/${slug}`),
+  ...[
+    "what-makes-a-kota-doria-saree",
+    "eleven-days-at-the-loom",
+    "meet-the-artisans-of-kota",
+    "five-ways-to-drape-a-kota",
+    "introducing-dhun",
+    "dressing-for-the-festive-season",
+  ].map((slug) => `/journal/${slug}`),
 ].map((path) => ({ path }));
 
 export default defineConfig({
