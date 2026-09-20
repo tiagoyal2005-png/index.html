@@ -136,7 +136,7 @@ function HomePage() {
 
       {/* Craft journey */}
       <section className="border-t border-border bg-card" aria-labelledby="journey">
-        <div className="container-page section-y">
+        <div className="container-page section-y-tight">
           <Reveal>
             <p className="eyebrow">Thread → Weave → Craft → Finish → You</p>
             <h2 id="journey" className="display mt-4 max-w-2xl text-4xl md:text-5xl">
@@ -347,7 +347,7 @@ function HomePage() {
       </section>
 
       {/* Journal */}
-      <section className="container-page section-y" aria-labelledby="journal-home">
+      <section className="container-page section-y-tight" aria-labelledby="journal-home">
         <Reveal className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <p className="eyebrow">Journal</p>
@@ -442,7 +442,7 @@ function StoryRow({
           className="h-full w-full object-cover"
         />
       </div>
-      <div className="flex items-center px-5 py-16 md:px-16">
+      <div className="flex items-center px-5 py-10 md:px-16">
         <Reveal className="max-w-md">
           <p className="eyebrow">{eyebrow}</p>
           <h3 className="display mt-4 text-3xl md:text-4xl">{title}</h3>
