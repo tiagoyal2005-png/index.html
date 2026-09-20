@@ -136,7 +136,7 @@ function HomePage() {
 
       {/* Craft journey */}
       <section className="border-t border-border bg-card" aria-labelledby="journey">
-        <div className="container-page section-y">
+        <div className="container-page section-y-tight">
           <Reveal>
             <p className="eyebrow">Thread → Weave → Craft → Finish → You</p>
             <h2 id="journey" className="display mt-4 max-w-2xl text-4xl md:text-5xl">
