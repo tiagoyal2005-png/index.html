@@ -16,7 +16,7 @@ export function Wordmark({
     <img
       src={logo}
       alt="Kota Doria Sarees"
-      className={cn("h-14 w-auto mix-blend-multiply md:h-16", className)}
+      className={cn("h-14 w-auto md:h-16", className)}
       width={494}
       height={404}
     />
