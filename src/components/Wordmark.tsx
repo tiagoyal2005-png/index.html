@@ -17,8 +17,8 @@ export function Wordmark({
       src={logo}
       alt="Kota Doria Sarees"
       className={cn("h-14 w-auto md:h-16", className)}
-      width={494}
-      height={404}
+      width={481}
+      height={403}
     />
   );
 }
