@@ -16,6 +16,7 @@ import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Toaster } from "@/components/ui/sonner";
 import { StoreProvider } from "@/lib/store";
+import { GA_MEASUREMENT_ID } from "@/lib/ga-id";
 import { site } from "@/data/site";
 
 function NotFoundComponent() {
@@ -155,6 +156,17 @@ function RootShell({ children }: { children: ReactNode }) {
           }}
         />
         {/* End Meta Pixel Code */}
+        {/* Google tag (gtag.js) — GOOGLE_ANALYTICS_MEASUREMENT_ID */}
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', '${GA_MEASUREMENT_ID}');`,
+          }}
+        />
+        {/* End Google tag (gtag.js) */}
         <HeadContent />
       </head>
       <body>
