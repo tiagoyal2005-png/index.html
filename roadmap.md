@@ -5,3 +5,5 @@
 - [ ] Publish so verification tag is live, then verify with Search Console + submit sitemap
 - [ ] (Carried over) ACTDF conversion audit follow-ups — fetch audit result and fold in remaining brand/copy items if any
 - [x] Configure static prerender output and GitHub Pages deployment for KOTADORIASAREES
+- [ ] Admin CRM: leads database, admin-only sign-in, /admin/crm pages
+- [ ] Connect contact/inquiry form submissions to CRM leads (guest-safe)
