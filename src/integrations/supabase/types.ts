@@ -102,6 +102,16 @@ export type Database = {
         }
         Returns: boolean
       }
+      submit_website_inquiry: {
+        Args: {
+          _email: string
+          _name: string
+          _phone: string
+          _product: string
+          _subject: string
+        }
+        Returns: string
+      }
     }
     Enums: {
       app_role: "admin" | "user"
