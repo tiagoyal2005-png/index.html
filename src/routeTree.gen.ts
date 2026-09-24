@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AccountRouteImport } from './routes/account'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as BagRouteImport } from './routes/bag'
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -20,11 +21,15 @@ import { Route as SearchRouteImport } from './routes/search'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as SuitsRouteImport } from './routes/suits'
 import { Route as WishlistRouteImport } from './routes/wishlist'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as CollectionsIndexRouteImport } from './routes/collections.index'
 import { Route as CollectionsSlugRouteImport } from './routes/collections.$slug'
 import { Route as JournalIndexRouteImport } from './routes/journal.index'
 import { Route as JournalSlugRouteImport } from './routes/journal.$slug'
 import { Route as ProductSlugRouteImport } from './routes/product.$slug'
+import { Route as AdminCrmIndexRouteImport } from './routes/admin.crm.index'
+import { Route as AdminCrmLeadsIndexRouteImport } from './routes/admin.crm.leads.index'
+import { Route as AdminCrmLeadsIdRouteImport } from './routes/admin.crm.leads.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,6 +39,11 @@ const IndexRoute = IndexRouteImport.update({
 const AccountRoute = AccountRouteImport.update({
   id: '/account',
   path: '/account',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BagRoute = BagRouteImport.update({
@@ -81,6 +91,11 @@ const WishlistRoute = WishlistRouteImport.update({
   path: '/wishlist',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRoute,
+} as any)
 const CollectionsIndexRoute = CollectionsIndexRouteImport.update({
   id: '/collections/',
   path: '/collections/',
@@ -106,10 +121,26 @@ const ProductSlugRoute = ProductSlugRouteImport.update({
   path: '/product/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminCrmIndexRoute = AdminCrmIndexRouteImport.update({
+  id: '/crm/',
+  path: '/crm/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminCrmLeadsIndexRoute = AdminCrmLeadsIndexRouteImport.update({
+  id: '/crm/leads/',
+  path: '/crm/leads/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminCrmLeadsIdRoute = AdminCrmLeadsIdRouteImport.update({
+  id: '/crm/leads/$id',
+  path: '/crm/leads/$id',
+  getParentRoute: () => AdminRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
+  '/admin': typeof AdminRouteWithChildren
   '/bag': typeof BagRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
@@ -122,8 +153,12 @@ export interface FileRoutesByFullPath {
   '/collections/$slug': typeof CollectionsSlugRoute
   '/journal/$slug': typeof JournalSlugRoute
   '/product/$slug': typeof ProductSlugRoute
+  '/admin/': typeof AdminIndexRoute
   '/collections/': typeof CollectionsIndexRoute
   '/journal/': typeof JournalIndexRoute
+  '/admin/crm/': typeof AdminCrmIndexRoute
+  '/admin/crm/leads/$id': typeof AdminCrmLeadsIdRoute
+  '/admin/crm/leads/': typeof AdminCrmLeadsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -140,13 +175,18 @@ export interface FileRoutesByTo {
   '/collections/$slug': typeof CollectionsSlugRoute
   '/journal/$slug': typeof JournalSlugRoute
   '/product/$slug': typeof ProductSlugRoute
+  '/admin': typeof AdminIndexRoute
   '/collections': typeof CollectionsIndexRoute
   '/journal': typeof JournalIndexRoute
+  '/admin/crm': typeof AdminCrmIndexRoute
+  '/admin/crm/leads/$id': typeof AdminCrmLeadsIdRoute
+  '/admin/crm/leads': typeof AdminCrmLeadsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
+  '/admin': typeof AdminRouteWithChildren
   '/bag': typeof BagRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
@@ -159,14 +199,19 @@ export interface FileRoutesById {
   '/collections/$slug': typeof CollectionsSlugRoute
   '/journal/$slug': typeof JournalSlugRoute
   '/product/$slug': typeof ProductSlugRoute
+  '/admin/': typeof AdminIndexRoute
   '/collections/': typeof CollectionsIndexRoute
   '/journal/': typeof JournalIndexRoute
+  '/admin/crm/': typeof AdminCrmIndexRoute
+  '/admin/crm/leads/$id': typeof AdminCrmLeadsIdRoute
+  '/admin/crm/leads/': typeof AdminCrmLeadsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/account'
+    | '/admin'
     | '/bag'
     | '/checkout'
     | '/contact'
@@ -179,8 +224,12 @@ export interface FileRouteTypes {
     | '/collections/$slug'
     | '/journal/$slug'
     | '/product/$slug'
+    | '/admin/'
     | '/collections/'
     | '/journal/'
+    | '/admin/crm/'
+    | '/admin/crm/leads/$id'
+    | '/admin/crm/leads/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -197,12 +246,17 @@ export interface FileRouteTypes {
     | '/collections/$slug'
     | '/journal/$slug'
     | '/product/$slug'
+    | '/admin'
     | '/collections'
     | '/journal'
+    | '/admin/crm'
+    | '/admin/crm/leads/$id'
+    | '/admin/crm/leads'
   id:
     | '__root__'
     | '/'
     | '/account'
+    | '/admin'
     | '/bag'
     | '/checkout'
     | '/contact'
@@ -215,13 +269,18 @@ export interface FileRouteTypes {
     | '/collections/$slug'
     | '/journal/$slug'
     | '/product/$slug'
+    | '/admin/'
     | '/collections/'
     | '/journal/'
+    | '/admin/crm/'
+    | '/admin/crm/leads/$id'
+    | '/admin/crm/leads/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AccountRoute: typeof AccountRoute
+  AdminRoute: typeof AdminRouteWithChildren
   BagRoute: typeof BagRoute
   CheckoutRoute: typeof CheckoutRoute
   ContactRoute: typeof ContactRoute
@@ -252,6 +311,13 @@ declare module '@tanstack/react-router' {
       path: '/account'
       fullPath: '/account'
       preLoaderRoute: typeof AccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/bag': {
@@ -317,6 +383,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WishlistRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/collections/': {
       id: '/collections/'
       path: '/collections'
@@ -352,12 +425,50 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/crm/': {
+      id: '/admin/crm/'
+      path: '/crm'
+      fullPath: '/admin/crm/'
+      preLoaderRoute: typeof AdminCrmIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/crm/leads/': {
+      id: '/admin/crm/leads/'
+      path: '/crm/leads'
+      fullPath: '/admin/crm/leads/'
+      preLoaderRoute: typeof AdminCrmLeadsIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/crm/leads/$id': {
+      id: '/admin/crm/leads/$id'
+      path: '/crm/leads/$id'
+      fullPath: '/admin/crm/leads/$id'
+      preLoaderRoute: typeof AdminCrmLeadsIdRouteImport
+      parentRoute: typeof AdminRoute
+    }
   }
 }
+
+interface AdminRouteChildren {
+  AdminIndexRoute: typeof AdminIndexRoute
+  AdminCrmIndexRoute: typeof AdminCrmIndexRoute
+  AdminCrmLeadsIdRoute: typeof AdminCrmLeadsIdRoute
+  AdminCrmLeadsIndexRoute: typeof AdminCrmLeadsIndexRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminIndexRoute: AdminIndexRoute,
+  AdminCrmIndexRoute: AdminCrmIndexRoute,
+  AdminCrmLeadsIdRoute: AdminCrmLeadsIdRoute,
+  AdminCrmLeadsIndexRoute: AdminCrmLeadsIndexRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccountRoute: AccountRoute,
+  AdminRoute: AdminRouteWithChildren,
   BagRoute: BagRoute,
   CheckoutRoute: CheckoutRoute,
   ContactRoute: ContactRoute,
