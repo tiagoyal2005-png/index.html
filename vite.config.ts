@@ -19,6 +19,8 @@ const staticPages = [
   "/wishlist",
   "/bag",
   "/checkout",
+  "/admin/crm",
+  "/admin/crm/leads",
   ...["aranya", "kshara", "vana", "dhun", "anant"].map((slug) => `/collections/${slug}`),
   ...[
     "aranya-maroon-zari-kota-saree",
