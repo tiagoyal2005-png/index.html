@@ -31,7 +31,7 @@ jobs:
 
       - name: Add GitHub Pages domain
         run: |
-          cp CNAME dist/client/CNAME
+          cp dist/client/admin/crm/leads/index.html dist/client/404.html && cp CNAME dist/client/CNAME
           touch dist/client/.nojekyll
 
       - name: Upload artifact

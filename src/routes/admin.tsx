@@ -118,7 +118,10 @@ function AdminSignIn() {
                   options: { emailRedirectTo: `${window.location.origin}/admin/crm` },
                 });
           setBusy(false);
-          if (error) return toast.error(error.message);
+          if (error) {
+            toast.error(error.message);
+            return;
+          }
           if (mode === "signup") toast.success("Check your email to confirm your account, then sign in.");
         }}
       >
